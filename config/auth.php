@@ -69,7 +69,18 @@ return [
             'driver' => 'eloquent',
             'model' => App\User::class,
         ],
-
+        'students' => [
+            'driver' => 'eloquent',
+            'model' => App\Student::class,
+        ],
+        'AMs' => [
+            'driver' => 'eloquent',
+            'model' => App\AM::class,
+        ],
+        'companies' => [
+            'driver' => 'eloquent',
+            'model' => App\Company::class,
+        ],
         // 'users' => [
         //     'driver' => 'database',
         //     'table' => 'users',
