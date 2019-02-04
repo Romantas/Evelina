@@ -12,3 +12,21 @@
   background-color: #fff;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
+/* REGISTER STYLE */
+.register{
+
+  .register-choice{
+    margin: 0px;
+    display: flex;
+    justify-content: space-between;
+    div{
+      cursor: pointer;
+      text-align:center;
+      padding: 20px 0px 20px 0px;
+      background-color: white;
+      border: 1px solid black;
+      border-radius: 10px;
+      width: 30%;
+    }
+  }
+}

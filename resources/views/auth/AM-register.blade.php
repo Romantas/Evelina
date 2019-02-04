@@ -5,9 +5,9 @@
     <div class="row justify-content-center">
         <div class="col-md-8 register">
             <div class="register-choice row">
-                <div><a href="">STUDENTAS</a></div>
-                <div><a href="">ĮMONĖ</a></div>
-                <div><a href="">AM</a></div>
+                <div><a href="student-register.blade.php">STUDENTAS</a></div>
+                <div><a href="company-register.blade.php">ĮMONĖ</a></div>
+                <div><a href="AM-register.blade.php">AM</a></div>
             </div>
         </div>
     </div>
@@ -15,7 +15,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('STUDENTAS') }}</div>
+                    <div class="card-header">{{ __('AM') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('register') }}">
