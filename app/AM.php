@@ -10,6 +10,8 @@ class AM extends Authenticatable
 {
     use Notifiable;
 
+    protected $guard = 'AM';
+
     /**
      * The attributes that are mass assignable.
      *
