@@ -53,8 +53,23 @@ services:
       - ./mysql/my.cnf:/etc/mysql/my.cnf
     networks:
       - app-network
-
 #Docker Networks
+#PHPMYADMIN
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: phpmyadmin
+    environment:
+      PMA_PORT: 3306
+      PMA_HOST: db
+      PMA_USER: root
+      PMA_PASSWORD: root
+    ports:
+      - "8004:8004"
+    restart: always
+    depends_on:
+      - db
+    networks:
+      - app-network
 networks:
   app-network:
     driver: bridge
