@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class RegisterController extends Controller
+class StudentRegisterController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -46,6 +46,9 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    public function index(){
+        return view('auth.student-register');
+    }
     protected function validator(array $data)
     {
         return Validator::make($data, [

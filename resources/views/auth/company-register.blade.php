@@ -2,16 +2,9 @@
 
 @section('content')
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8 register">
-            <div class="register-choice row">
-                <div><a href="">STUDENTAS</a></div>
-                <div><a href="">ĮMONĖ</a></div>
-                <div><a href="">AM</a></div>
-            </div>
-        </div>
-    </div>
-    <section id="student">
+    @component('components.register-buttons')
+    @endcomponent
+    <section id="company">
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
