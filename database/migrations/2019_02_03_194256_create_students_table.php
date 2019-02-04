@@ -23,11 +23,11 @@ class CreateStudentsTable extends Migration
             $table->date('date_of_birth');
             $table->string('AM');
             $table->string('study_thing');
-            $table->string('intresting_things');
-            $table->string('CV');
-            $table->string('report');
+            $table->string('intresting_things')->nullable();
+            $table->string('CV')->nullable();
+            $table->string('report')->nullable();
             $table->string('city');
-            $table->integer('votes');
+            $table->integer('votes')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -15,8 +15,12 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+/* STUDENT AUTH*/
+Route::get('student/register', 'Auth\StudentRegisterController@index')->name('StudentRegister');
+/* COMPANY AUTH*/
+Route::get('company/register', 'Auth\CompanyRegisterController@index')->name('CompanyRegister');
 
+Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/student', 'StudentController@index')->name('student');
 Route::get('/AM', 'AMController@index')->name('AM');

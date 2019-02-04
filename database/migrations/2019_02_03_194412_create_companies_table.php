@@ -22,10 +22,10 @@ class CreateCompaniesTable extends Migration
             $table->string('area');
             $table->string('practice');
             $table->string('address');
-            $table->string('income');
-            $table->string('workers_count');
+            $table->string('income')->nullable();
+            $table->string('workers_count')->nullable();
             $table->string('ceo');
-            $table->integer('votes');
+            $table->integer('votes')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

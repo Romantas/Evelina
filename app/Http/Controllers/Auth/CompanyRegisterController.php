@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Student;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
 
-class RegisterController extends Controller
+class CompanyRegisterController extends Controller
 {
     /*
     |--------------------------------------------------------------------------
@@ -39,7 +39,9 @@ class RegisterController extends Controller
     {
         $this->middleware('guest');
     }
-
+    public function index(){
+        return view('auth/company-register');
+    }
     /**
      * Get a validator for an incoming registration request.
      *
