@@ -20,7 +20,6 @@ class CreateCompaniesTable extends Migration
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('area');
-            $table->string('practice');
             $table->string('address');
             $table->string('income')->nullable();
             $table->string('workers_count')->nullable();

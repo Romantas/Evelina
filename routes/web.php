@@ -16,9 +16,11 @@ Route::get('/', function () {
 });
 
 /* STUDENT AUTH*/
-Route::get('student/register', 'Auth\StudentRegisterController@index')->name('StudentRegister');
+Route::get('student/register', 'Auth\StudentRegisterController@showStudentRegistrationForm')->name('StudentRegister');
+Route::post('student/register','Auth\studentRegisterController@register')->name('studentRegister');
 /* COMPANY AUTH*/
-Route::get('company/register', 'Auth\CompanyRegisterController@index')->name('CompanyRegister');
+Route::get('company/register', 'Auth\CompanyRegisterController@showCompanyRegistrationForm')->name('CompanyRegister');
+Route::post('company/register','Auth\CompanyRegisterController@register')->name('CompanyRegister');
 
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');

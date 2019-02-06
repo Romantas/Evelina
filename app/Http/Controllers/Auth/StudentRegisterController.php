@@ -46,15 +46,22 @@ class StudentRegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
-    public function index(){
+    public function showStudentRegistrationForm(){
         return view('auth.student-register');
     }
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'date_of_birth' => ['required', 'date'],
+            'AM' => ['required', 'string', 'max:255'],
+            'study_thing' => ['required', 'string', 'max:255'],
+            'intresting_things' => ['required', 'string', 'max:255'],
+            'CV' => ['nullable'],
+            'city' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -66,10 +73,17 @@ class StudentRegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Student::create([
             'name' => $data['name'],
+            'last_name' => $data['last_name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'date_of_birth' => $data['date_of_birth'],
+            'AM' => $data['AM'],
+            'study_thing' => $data['study_thing'],
+            'intresting_things' => $data['intresting_things'],
+            'CV' => $data['CV'],
+            'city' => $data['city'],
         ]);
     }
 }

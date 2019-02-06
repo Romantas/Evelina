@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\Student;
+use App\Company;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
@@ -39,21 +39,28 @@ class CompanyRegisterController extends Controller
     {
         $this->middleware('guest');
     }
-    public function index(){
-        return view('auth/company-register');
-    }
+
     /**
      * Get a validator for an incoming registration request.
      *
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    public function showCompanyRegistrationForm(){
+        return view('auth.company-register');
+    }
+
     protected function validator(array $data)
     {
         return Validator::make($data, [
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
+            'area' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'min:6', 'confirmed'],
+            'address' => ['required', 'string', 'max:255'],
+            'income' => ['required', 'string', 'max:255'],
+            'workers_count' => ['required', 'string', 'max:255'],
+            'ceo' => ['required', 'string', 'max:255'],
         ]);
     }
 
@@ -65,10 +72,15 @@ class CompanyRegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
+        return Company::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => Hash::make($data['password']),
+            'area' => $data['area'],
+            'address' => $data['address'],
+            'income' => $data['income'],
+            'workers_count' => $data['workers_count'],
+            'ceo' => $data['ceo'],
         ]);
     }
 }
