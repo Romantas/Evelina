@@ -17,7 +17,7 @@ services:
     volumes:
       - ./:/var/www
       - ./php/local.ini:/usr/local/etc/php/conf.d/local.ini
-    networks
+    networks:
       - app-network
 
   #Nginx Service
@@ -54,11 +54,13 @@ services:
     networks:
       - app-network
 #Docker Networks
-#PHPMYADMIN
+#adminer
   adminer:
     image: adminer
     container_name: adminer
     restart: always
+    depends_on:
+      - db
     ports:
       - 8080:8080
     networks:

@@ -15,15 +15,36 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/* STUDENT AUTH*/
-Route::get('student/register', 'Auth\StudentRegisterController@showStudentRegistrationForm')->name('StudentRegister');
-Route::post('student/register','Auth\studentRegisterController@register')->name('studentRegister');
-/* COMPANY AUTH*/
-Route::get('company/register', 'Auth\CompanyRegisterController@showCompanyRegistrationForm')->name('CompanyRegister');
-Route::post('company/register','Auth\CompanyRegisterController@register')->name('CompanyRegister');
 
 Auth::routes();
+
+
+Route::prefix('student')->group(function(){
+    /* STUDENT AUTH*/
+    /* REGISTER */
+    Route::get('/register', 'Auth\StudentRegisterController@showStudentRegistrationForm')->name('StudentRegister');
+    Route::post('/register','Auth\studentRegisterController@register')->name('studentRegister');
+
+    /* DASHBOARD */
+    Route::get('/', 'StudentController@index')->name('student');
+});
+Route::prefix('company')->group(function(){
+    /* COMPANY AUTH*/
+    /* REGISTER */
+    Route::get('/register', 'Auth\CompanyRegisterController@showCompanyRegistrationForm')->name('CompanyRegister');
+    Route::post('/register','Auth\CompanyRegisterController@register')->name('CompanyRegister');
+
+    /* DASHBOARD */
+    Route::get('/', 'CompanyController@index')->name('Company');
+});
+Route::prefix('AM')->group(function(){
+    /* AM */
+    /* DASHBOARD */
+    Route::get('/', 'AMController@index')->name('AM');
+});
+/*
+Route::get('/login', 'UsersLoginController@showLoginForm')->name('Userlogin');
+Route::post('/login','UsersLoginController@login')->name('Userlogin');
+*/
 Route::get('/home', 'HomeController@index')->name('home');
-Route::get('/student', 'StudentController@index')->name('student');
-Route::get('/AM', 'AMController@index')->name('AM');
-Route::get('/company', 'CompanyController@index')->name('Company');
+
