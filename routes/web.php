@@ -42,9 +42,11 @@ Route::prefix('AM')->group(function(){
     /* DASHBOARD */
     Route::get('/', 'AMController@index')->name('AM');
 });
-/*
-Route::get('/login', 'UsersLoginController@showLoginForm')->name('Userlogin');
-Route::post('/login','UsersLoginController@login')->name('Userlogin');
-*/
+
+Route::get('/login', 'Auth\UsersLoginController@showLoginForm')->name('Userlogin');
+Route::post('/login','Auth\UsersLoginController@login')->name('Userlogin');
+
+Route::post('logout', 'Auth\UsersLoginController@logout')->name('Userlogout');
+
 Route::get('/home', 'HomeController@index')->name('home');
 
