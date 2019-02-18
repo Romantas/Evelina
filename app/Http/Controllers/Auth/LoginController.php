@@ -61,9 +61,9 @@ class LoginController extends Controller
         else if(Auth::guard('company')->attempt($crediantials, $request->remember)){
             return redirect()->intended(route('company'));
         }
-        else if(Auth::guard('AM')->attempt($crediantials, $request->remember)){
+        /*else if(Auth::guard('AM')->attempt($crediantials, $request->remember)){
             return redirect()->intended(route('AM'));
-        }
+        }*/
         else {
             //return dd($request);
             return redirect()->back()->withInput($request->only('email', 'remember'));

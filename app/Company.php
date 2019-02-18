@@ -28,4 +28,8 @@ class Company extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function practices(){
+        return $this->hasMany('App\Practice');
+    }
 }

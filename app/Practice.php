@@ -16,6 +16,11 @@ class Practice extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'title', 'subtitle', 'body',
+        'user_id', 'title', 'subtitle', 'body',
     ];
+    protected $dates = ['created_at', 'updated_at'];
+
+    public function company(){
+        return $this->belongsTo('App\Company');
+    }
 }

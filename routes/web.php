@@ -27,6 +27,7 @@ Route::prefix('student')->group(function(){
 
     /* DASHBOARD */
     Route::get('/', 'StudentController@index')->name('student');
+
 });
 Route::prefix('company')->group(function(){
     /* COMPANY AUTH*/
@@ -35,7 +36,11 @@ Route::prefix('company')->group(function(){
     Route::post('/register','Auth\CompanyRegisterController@register')->name('CompanyRegister');
 
     /* DASHBOARD */
-    Route::get('/', 'CompanyController@index')->name('Company');
+    Route::get('/', 'CompanyController@index')->name('company');
+
+    /* PRACTICE */
+
+    Route::resource('practice', 'PracticeController');
 });
 Route::prefix('AM')->group(function(){
     /* AM */
