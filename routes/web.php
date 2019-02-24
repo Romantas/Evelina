@@ -11,9 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'IndexController@index')->name('main');
 
 
 Auth::routes();
@@ -28,15 +26,24 @@ Route::prefix('student')->group(function(){
     /* DASHBOARD */
     Route::get('/', 'StudentController@index')->name('student');
 
+    /* PROFILE */
+    //Route::get('/profile', 'StudentProfileController@edit')->name('StudentProfile');
+
 });
 Route::prefix('company')->group(function(){
     /* COMPANY AUTH*/
     /* REGISTER */
+
     Route::get('/register', 'Auth\CompanyRegisterController@showCompanyRegistrationForm')->name('CompanyRegister');
     Route::post('/register','Auth\CompanyRegisterController@register')->name('CompanyRegister');
 
     /* DASHBOARD */
     Route::get('/', 'CompanyController@index')->name('company');
+
+    /* PROFILE */
+
+    Route::get('/profile/{id}', 'CompanyProfileController@edit')->name('CompanyProfile');
+    Route::patch('/profile/{id}', 'CompanyProfileController@update')->name('CompanyProfile.update');
 
     /* PRACTICE */
 
@@ -46,6 +53,9 @@ Route::prefix('AM')->group(function(){
     /* AM */
     /* DASHBOARD */
     Route::get('/', 'AMController@index')->name('AM');
+
+    /* PROFILE */
+    //Route::get('/profile', 'AMProfileController@edit')->name('AMProfile');
 });
 
 Route::get('/login', 'Auth\UsersLoginController@showLoginForm')->name('Userlogin');

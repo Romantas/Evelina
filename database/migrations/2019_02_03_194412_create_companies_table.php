@@ -25,6 +25,7 @@ class CreateCompaniesTable extends Migration
             $table->string('workers_count')->nullable();
             $table->string('ceo');
             $table->integer('votes')->nullable();
+            $table->string('logo')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

@@ -13,7 +13,7 @@ class PracticeController extends Controller
 
     public function index(){
         $practices = Practice::all();
-        return view('practice.index', compact('practice'));
+        return view('practice.index', compact('practice'))->with('practices', $practices);
     }
 
     public function create(){

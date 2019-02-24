@@ -11,7 +11,7 @@
                     <div class="card-header">{{ __('ĮMONĖ') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('CompanyRegister') }}">
+                        <form method="POST" action="{{ route('CompanyRegister') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="form-group row">
@@ -129,6 +129,20 @@
                                     @if ($errors->has('ceo'))
                                         <span class="invalid-feedback" role="alert">
                                         <strong>{{ $errors->first('ceo') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="logo" class="col-md-4 col-form-label text-md-right">{{ __('logo') }}</label>
+
+                                <div class="col-md-6">
+                                    <input id="logo" type="file" class="form-control{{ $errors->has('logo') ? ' is-invalid' : '' }}" name="logo" value="{{ old('logo') }}" autofocus>
+
+                                    @if ($errors->has('logo'))
+                                        <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $errors->first('logo') }}</strong>
                                     </span>
                                     @endif
                                 </div>

@@ -61,6 +61,7 @@ class CompanyRegisterController extends Controller
             'income' => ['required', 'string', 'max:255'],
             'workers_count' => ['required', 'string', 'max:255'],
             'ceo' => ['required', 'string', 'max:255'],
+            'logo' => ['image', 'max:1999'],
         ]);
     }
 
@@ -72,6 +73,17 @@ class CompanyRegisterController extends Controller
      */
     protected function create(array $data)
     {
+        if($data->hasFile('logo')){
+            $fileNameWithExt = $data->file('logo')->getClientOriginalName();
+            $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
+            $ext = $data->file('logo')->getClientOriginalExtension();
+            $fileToSave = $filename.'_'.time().'.'.$ext;
+
+            $path = $data->file('logo')->storeAs('public/company', $fileToSave);
+
+        } else {
+            $fileToSave = 'company.jpg';
+        }
         return Company::create([
             'name' => $data['name'],
             'email' => $data['email'],
@@ -81,6 +93,7 @@ class CompanyRegisterController extends Controller
             'income' => $data['income'],
             'workers_count' => $data['workers_count'],
             'ceo' => $data['ceo'],
+            'logo' => $fileToSave,
         ]);
     }
 }

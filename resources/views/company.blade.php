@@ -13,7 +13,9 @@
                             {{ session('status') }}
                         </div>
                     @endif
-                    You are company!
+                    <div>
+                        <a href="{{ route('practice.index') }}">PRAKTIKA</a>
+                    </div>
                 </div>
             </div>
         </div>
