@@ -16,7 +16,7 @@ class Practice extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'user_id', 'title', 'subtitle', 'body',
+        'user_id', 'title', 'subtitle', 'body', 'logo',
     ];
     protected $dates = ['created_at', 'updated_at'];
 

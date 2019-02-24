@@ -30,6 +30,7 @@ class PracticeController extends Controller
             'user_id' => $request->user()->id,
             'title'   => $request->title,
             'body'    => $request->body,
+            'logo'    => $request->user()->logo,
         ]);
         return redirect()->route('practice.index');
     }
