@@ -13,6 +13,8 @@
 
 Route::get('/', 'IndexController@index')->name('main');
 
+Route::get('/search', 'IndexController@search');
+
 
 Auth::routes();
 

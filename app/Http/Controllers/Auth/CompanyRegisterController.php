@@ -4,6 +4,8 @@ namespace App\Http\Controllers\Auth;
 
 use App\Company;
 use App\Http\Controllers\Controller;
+use http\Env\Request;
+use Illuminate\Support\Facades\Input;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
@@ -73,13 +75,13 @@ class CompanyRegisterController extends Controller
      */
     protected function create(array $data)
     {
-        if($data->hasFile('logo')){
-            $fileNameWithExt = $data->file('logo')->getClientOriginalName();
+        if(Input::hasFile('logo')){
+            $fileNameWithExt = Input::file('logo')->getClientOriginalName();
             $filename = pathinfo($fileNameWithExt, PATHINFO_FILENAME);
-            $ext = $data->file('logo')->getClientOriginalExtension();
+            $ext = Input::file('logo')->getClientOriginalExtension();
             $fileToSave = $filename.'_'.time().'.'.$ext;
 
-            $path = $data->file('logo')->storeAs('public/company', $fileToSave);
+            $path = Input::file('logo')->storeAs('public/company', $fileToSave);
 
         } else {
             $fileToSave = 'company.jpg';

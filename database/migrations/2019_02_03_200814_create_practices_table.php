@@ -17,7 +17,7 @@ class CreatePracticesTable extends Migration
             $table->increments('id');
             $table->integer('user_id')->unsigned();
             $table->string('title');
-            $table->string('subtitle');
+            $table->string('subtitle')->nullable();
             $table->text('body');
             $table->timestamps();
             $table->softDeletes();
