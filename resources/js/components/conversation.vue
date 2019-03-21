@@ -20,9 +20,26 @@
                 default: []
             }
         },
+        data: function() {
+            return {
+                csrf: document.querySelector('meta[name="csrf-token"]').getAttribute('content'),
+        };
+        },
         methods: {
             sendMessage(text){
-                console.log(text);
+                if(!this.contact){
+                    return;
+                }
+                axios.post('message/send', {
+                    contact_email: this.contact.email,
+                    text: text,
+                }, {headers:{ 'X-CSRF-TOKEN': this.csrf,
+                    }}).then((response) => {
+                    //console.log(response.data);
+                    this.$emit('new', response.data);
+                }).catch((error) => {
+                    console.log(error);
+                })
             }
         },
         components: {messagecomposer, messagesfeed}

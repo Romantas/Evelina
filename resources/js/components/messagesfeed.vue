@@ -1,9 +1,9 @@
 <template>
-    <div class="feed">
+    <div class="feed" ref="feed">
         <ul v-if="contact">
             <li v-for="message in messages" :class="`message${message.to == contact.email ? ' to' : ' from'}`" :key="message.id">
                 <div class="text">
-                    {{ message.message }}
+                    {{ message.text }}
                 </div>
             </li>
         </ul>
@@ -19,6 +19,21 @@
             messages: {
                 type: Array,
                 required: true
+            }
+        },
+        methods: {
+            scrollToBottom(){
+                setTimeout(() => {
+                    this.$refs.feed.scrollTop = this.$refs.feed.scrollHeight - this.$refs.feed.clientHeight;
+                }, 50);
+            },
+        },
+        watch: {
+            contact(contact) {
+                this.scrollToBottom();
+            },
+            messages(messages) {
+                this.scrollToBottom();
             }
         }
     }
@@ -44,13 +59,13 @@
                         display: inline-block;
                     }
                     &.from{
-                        text-align: right;
                         .text{
                             background: #b2b2b2;
+                            margin-left: auto;
+                            margin-right: 0;
                         }
                     }
                     &.to{
-                        text-align: left;
                         .text{
                             background: #81c4f9;
                         }

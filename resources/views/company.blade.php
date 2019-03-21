@@ -14,6 +14,7 @@
                         </div>
                     @endif
                     <div>
+                        <a href="{{route('conversation')}}">LIVE CHAT</a>
                         <a href="{{ route('practice.index') }}">PRAKTIKA</a>
                     </div>
                 </div>
