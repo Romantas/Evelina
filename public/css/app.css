@@ -10514,3 +10514,55 @@ a.text-dark:focus {
   width: 30%;
 }
 
+/* LIVE CHAT STYLE */
+
+.card-body {
+  padding: 0;
+}
+
+.message {
+  display: flex;
+}
+
+.message .chat {
+  max-height: 500px;
+  overflow: scroll;
+}
+
+.message .conversation {
+  flex: 5;
+}
+
+.message .conversation .chat .from {
+  text-align: left;
+}
+
+.message .conversation .chat .to {
+  text-align: right;
+}
+
+.message .conversation form textarea {
+  width: 100%;
+}
+
+.message .contacts {
+  flex: 2;
+  max-height: 600px;
+  overflow: scroll;
+}
+
+.message .contacts ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
+  height: 50px;
+  border: 1px solid #aaaaaa;
+  margin: 0;
+  padding: 0;
+}
+
+.message .contacts ul li {
+  text-align: center;
+}
+

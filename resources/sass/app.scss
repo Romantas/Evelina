@@ -14,7 +14,6 @@
 }
 /* REGISTER STYLE */
 .register{
-
   .register-choice{
     margin: 0px;
     display: flex;
@@ -27,6 +26,51 @@
       border: 1px solid black;
       border-radius: 10px;
       width: 30%;
+    }
+  }
+}
+/* LIVE CHAT STYLE */
+.card-body{
+  padding: 0;
+}
+.message{
+  display: flex;
+  .chat{
+    max-height: 500px;
+    overflow: scroll;
+  }
+  .conversation{
+    flex: 5;
+    .chat{
+      .from{
+        text-align: left;
+      }
+      .to{
+        text-align: right;
+      }
+    }
+    form{
+      textarea{
+        width: 100%;
+      }
+    }
+  }
+  .contacts{
+    flex: 2;
+    max-height: 600px;
+    overflow: scroll;
+    ul{
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      height: 50px;
+      border: 1px solid #aaaaaa;
+      margin: 0;
+      padding: 0;
+      li{
+        text-align: center;
+      }
     }
   }
 }

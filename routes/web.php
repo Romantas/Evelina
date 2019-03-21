@@ -60,6 +60,10 @@ Route::prefix('AM')->group(function(){
     //Route::get('/profile', 'AMProfileController@edit')->name('AMProfile');
 });
 
+Route::get('/conversation', 'MessageController@index')->name('conversation');
+Route::get('/contacts', 'MessageController@getContacts');
+Route::get('message/{email}', 'MessageController@getMessageFor');
+
 Route::get('/login', 'Auth\UsersLoginController@showLoginForm')->name('Userlogin');
 Route::post('/login','Auth\UsersLoginController@login')->name('Userlogin');
 
