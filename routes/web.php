@@ -48,8 +48,14 @@ Route::prefix('company')->group(function(){
     Route::patch('/profile/{id}', 'CompanyProfileController@update')->name('CompanyProfile.update');
 
     /* PRACTICE */
+//        Route::get('practice/create', 'PracticeController@create')->name('practice.create');
+//        Route::post('practice', 'PracticeController@destroy')->name('practice.create');
+//        Route::get('practice', 'PracticeController@index')->name('practice.index');
+//        Route::delete('practice/{practice}', 'PracticeController@destroy')->name('practice.create');
+//        Route::put('practice/{practice}', 'PracticeController@update')->name('practice.update');
+//        Route::get('practice/{id}', 'PracticeController@show')->middleware('guest')->name('practice.show');
+        Route::resource('practice', 'PracticeController');
 
-    Route::resource('practice', 'PracticeController');
 });
 Route::prefix('AM')->group(function(){
     /* AM */

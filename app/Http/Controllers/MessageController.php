@@ -36,20 +36,20 @@ class MessageController extends Controller
         return response()->json($messages);
     }
     public function send(Request $request){
-        if(isset(auth('student')->user()->email) != null){
+        //if(isset(auth('student')->user()->email) != null){
             $message = Message::create([
                 'from' => auth('student')->user()->email,
                 'to' => $request->contact_email,
                 'text' => $request->text,
             ]);
-        }
-        else{
+        //}
+        /*else{
             $message = Message::create([
                 'from' => auth('company')->user()->email,
                 'to' => $request->contact_email,
                 'text' => $request->text,
             ]);
-        }
+        }*/
 
         broadcast(new NewMessage($message));
 

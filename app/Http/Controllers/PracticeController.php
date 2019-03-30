@@ -8,12 +8,17 @@ use Illuminate\Http\Request;
 class PracticeController extends Controller
 {
     public function __construct(){
-        $this->middleware('auth:company');
+        $this->middleware('auth:company', ['only' => ['index', 'create', 'store', 'edit', 'update', 'destroy']]);
     }
 
     public function index(){
         $practices = Practice::all();
         return view('practice.index', compact('practice'))->with('practices', $practices);
+    }
+
+    public function show($id){
+        $practice = Practice::find($id);
+        return view('practice.show')->with('practice', $practice);
     }
 
     public function create(){

@@ -44,14 +44,19 @@
                        this.selectedContact = contact;
                     });
             },
-            saveNewMessage(text) {
-                this.messages.push(text);
+            saveNewMessage(message) {
+                this.messages.push(message);
             },
             handleIncoming(message) {
-                //console.log(selectedContact);
+                console.log(message);
+                console.log(this.selectedContact.email);
+                if(this.selectedContact && message.to == this.selectedContact.email){
                     this.saveNewMessage(message);
                     return;
-                alert(message);
+                }
+                else{
+                    alert(message);
+                }
 
             }
         },

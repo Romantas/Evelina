@@ -1812,14 +1812,19 @@ __webpack_require__.r(__webpack_exports__);
         _this2.selectedContact = contact;
       });
     },
-    saveNewMessage: function saveNewMessage(text) {
-      this.messages.push(text);
+    saveNewMessage: function saveNewMessage(message) {
+      this.messages.push(message);
     },
     handleIncoming: function handleIncoming(message) {
-      //console.log(selectedContact);
-      this.saveNewMessage(message);
-      return;
-      alert(message);
+      console.log(message);
+      console.log(this.selectedContact.email);
+
+      if (this.selectedContact && message.to == this.selectedContact.email) {
+        this.saveNewMessage(message);
+        return;
+      } else {
+        alert(message);
+      }
     }
   },
   components: {

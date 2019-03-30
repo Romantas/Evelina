@@ -24,7 +24,6 @@ class CreateStudentsTable extends Migration
             $table->string('AM');
             $table->string('study_thing');
             $table->string('intresting_things')->nullable();
-            $table->string('CV')->nullable();
             $table->string('report')->nullable();
             $table->string('city');
             $table->integer('votes')->nullable();
